@@ -18,6 +18,7 @@ import { getVersion } from "../../version";
        * this slice must be the same type. This field is immutable after creation. The following
        * address types are currently supported: * IPv4: Represents an IPv4 Address. * IPv6:
        * Represents an IPv6 Address. * FQDN: Represents a Fully Qualified Domain Name.
+       * * FQDN: Represents a Fully Qualified Domain Name. Default is IP
        */
       public readonly addressType: pulumi.Output<string>;
 
