@@ -3448,15 +3448,6 @@ namespace Pulumi.Kubernetes.Types.Inputs.ApiRegistration
         public Input<int> GroupPriorityMinimum { get; set; } = null!;
 
         /// <summary>
-        /// Service is a reference to the service for this API server.  It must communicate on port
-        /// 443 If the Service is nil, that means the handling for the API groupversion is handled
-        /// locally on this server. The call will simply delegate to the normal handler chain to be
-        /// fulfilled.
-        /// </summary>
-        [Input("service", required: true)]
-        public Input<ApiRegistration.V1.ServiceReferenceArgs> Service { get; set; } = null!;
-
-        /// <summary>
         /// VersionPriority controls the ordering of this API version inside of its group.  Must be
         /// greater than zero. The primary sort is based on VersionPriority, ordered highest to
         /// lowest (20 before 10). Since it's inside of a group, the number can be small, probably
@@ -3492,6 +3483,15 @@ namespace Pulumi.Kubernetes.Types.Inputs.ApiRegistration
         /// </summary>
         [Input("insecureSkipTLSVerify")]
         public Input<bool>? InsecureSkipTLSVerify { get; set; }
+
+        /// <summary>
+        /// Service is a reference to the service for this API server.  It must communicate on port
+        /// 443 If the Service is nil, that means the handling for the API groupversion is handled
+        /// locally on this server. The call will simply delegate to the normal handler chain to be
+        /// fulfilled.
+        /// </summary>
+        [Input("service")]
+        public Input<ApiRegistration.V1.ServiceReferenceArgs>? Service { get; set; }
 
         /// <summary>
         /// Version is the API version this server hosts.  For example, "v1"
@@ -3681,15 +3681,6 @@ namespace Pulumi.Kubernetes.Types.Inputs.ApiRegistration
         public Input<int> GroupPriorityMinimum { get; set; } = null!;
 
         /// <summary>
-        /// Service is a reference to the service for this API server.  It must communicate on port
-        /// 443 If the Service is nil, that means the handling for the API groupversion is handled
-        /// locally on this server. The call will simply delegate to the normal handler chain to be
-        /// fulfilled.
-        /// </summary>
-        [Input("service", required: true)]
-        public Input<ApiRegistration.V1Beta1.ServiceReferenceArgs> Service { get; set; } = null!;
-
-        /// <summary>
         /// VersionPriority controls the ordering of this API version inside of its group.  Must be
         /// greater than zero. The primary sort is based on VersionPriority, ordered highest to
         /// lowest (20 before 10). Since it's inside of a group, the number can be small, probably
@@ -3725,6 +3716,15 @@ namespace Pulumi.Kubernetes.Types.Inputs.ApiRegistration
         /// </summary>
         [Input("insecureSkipTLSVerify")]
         public Input<bool>? InsecureSkipTLSVerify { get; set; }
+
+        /// <summary>
+        /// Service is a reference to the service for this API server.  It must communicate on port
+        /// 443 If the Service is nil, that means the handling for the API groupversion is handled
+        /// locally on this server. The call will simply delegate to the normal handler chain to be
+        /// fulfilled.
+        /// </summary>
+        [Input("service")]
+        public Input<ApiRegistration.V1Beta1.ServiceReferenceArgs>? Service { get; set; }
 
         /// <summary>
         /// Version is the API version this server hosts.  For example, "v1"
@@ -25838,7 +25838,7 @@ namespace Pulumi.Kubernetes.Types.Inputs.Policy
         }
 
         /// <summary>
-        /// Most recent generation observed when updating this PDB status. PodDisruptionsAllowed and
+        /// Most recent generation observed when updating this PDB status. DisruptionsAllowed and
         /// other status information is valid only if observedGeneration equals to PDB's object
         /// generation.
         /// </summary>

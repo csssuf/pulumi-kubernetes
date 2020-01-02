@@ -29355,7 +29355,7 @@ namespace Pulumi.Kubernetes.Types.Outputs.Policy
       public readonly int ExpectedPods;
 
       /// <summary>
-        /// Most recent generation observed when updating this PDB status. PodDisruptionsAllowed and
+        /// Most recent generation observed when updating this PDB status. DisruptionsAllowed and
         /// other status information is valid only if observedGeneration equals to PDB's object
         /// generation.
         /// </summary>
